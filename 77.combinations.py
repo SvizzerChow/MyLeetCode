@@ -18,7 +18,3 @@ class Solution:
 
 
 print(Solution().combine(4, 3))
-
-
-
-
