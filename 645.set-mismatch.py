@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        total = 0
+        total = (1 + len(nums))*len(nums) // 2
         counter = [0] * len(nums)
         result = [0, 0]
         for n in nums:
@@ -11,8 +11,8 @@ class Solution:
             if counter[n - 1] > 1:
                 result[0] = n
             else:
-                total += n
-        result[1] = (1 + len(nums))*len(nums) >> 2 - total
+                total -= n
+        result[1] = total
         return result
 
 
