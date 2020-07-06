@@ -4,6 +4,9 @@ class TreeNode:
         self.left = None
         self.right = None
 
+    def __str__(self):
+        return self.val
+
 
 def stringToTreeNode(input):
     input = input.strip()
