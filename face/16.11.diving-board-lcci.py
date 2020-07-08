@@ -10,8 +10,10 @@ class Solution:
         result = [shorter * k] * (k + 1)
         i = 1
         temp = longer - shorter
+        x = result[0]
         while i <= k:
-            result[i] = result[i - 1] + temp
+            x += temp
+            result[i] = x
             i += 1
         return result
 
