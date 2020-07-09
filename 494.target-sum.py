@@ -22,19 +22,20 @@ class Solution:
         x = x // 2
         if x < minValue:
             return 0
-        return self._getSum(x, nums, 0)
+        return self._getSum(x, sorted(nums, reverse=True))
 
-    def _getSum(self, count, nums, start):
-        result = 0
-        for i in range(start, len(nums)):
-            if nums[i] > count:
+    def _getSum(self, count, nums):
+        counter = [0] * (count + 1)
+        for n in nums:
+            if n > count:
                 continue
-            if nums[i] == count:
-                result += 1
-            result += self._getSum(count - nums[i], nums, i+1)
-        return result
+            for j in range(count, n, -1):
+                if counter[j - n] > 0:
+                    counter[j] += counter[j - n]
+            counter[n] += 1
+        return counter[count]
 
 
-nums= [1,1,31,18,39,33,33,15,36,50,8,47,21,29,24,39,23,44,22,33]
-s = 11
+nums= [9,7,0,3,9,8,6,5,7,6]
+s = 2
 print(Solution().findTargetSumWays(nums, s))
