@@ -3,18 +3,23 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        maxDiff = 0
         if len(prices) < 2:
             return 0
-        tempStart = 0
+        # [0, 0, 0]不交易，买入，卖出
+        buys = [[0, 0, 0] for _ in range(len(prices))]
+        buys[0][1] = -prices[0]
         for i in range(1, len(prices)):
-            if prices[i] > prices[tempStart]:
-                temp = prices[i] - prices[tempStart]
-                if temp > maxDiff:
-                    maxDiff = temp
-            if prices[i] < prices[tempStart]:
-                tempStart = i
-        return maxDiff if maxDiff > 0 else 0
+            buys[i][0] = max(buys[i-1][0], buys[i-1][1], buys[i-1][2])
+            buys[i][1] = -prices[i]
+            t = buys[i-1][0]
+            if t < 0:
+                t = max(t, buys[i-1][1])
+            else:
+                t = buys[i-1][1]
+            if t >= 0:
+                continue
+            buys[i][2] = prices[i] + t
+        return max(buys[-1][0], buys[-1][2])
 
 
 
