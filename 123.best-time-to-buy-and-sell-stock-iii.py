@@ -15,7 +15,7 @@ class Solution:
         for i in range(1, len(prices)):
             for k in range(1, 3):
                 buys[i][k][0] = max(buys[i-1][k][0], buys[i-1][k-1][1] + prices[i])
-                buys[i][k][1] = max(buys[i-1][k][1], buys[i-1][k-1][0] - prices[i], buys[i-1][k][0] - prices[i])
+                buys[i][k][1] = max(buys[i-1][k][1], buys[i-1][k][0] - prices[i])
         print(buys)
         return buys[-1][2][0]
 
