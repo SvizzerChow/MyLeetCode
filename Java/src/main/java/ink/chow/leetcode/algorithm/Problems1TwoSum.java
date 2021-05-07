@@ -2,7 +2,7 @@ package ink.chow.leetcode.algorithm;
 
 import java.util.*;
 
-public class TwoSum1 {
+public class Problems1TwoSum {
 
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[0];
@@ -24,6 +24,6 @@ public class TwoSum1 {
 
     public static void main(String[] args) {
         int[] data = new int[]{3, 3};
-        System.out.println(Arrays.toString(new TwoSum1().twoSum(data, 7)));
+        System.out.println(Arrays.toString(new Problems1TwoSum().twoSum(data, 7)));
     }
 }
