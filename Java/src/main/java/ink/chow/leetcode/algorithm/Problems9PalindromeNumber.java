@@ -1,30 +1,33 @@
 package ink.chow.leetcode.algorithm;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Problems9PalindromeNumber {
     public boolean isPalindrome(int x) {
         if (x < 0) {
             return false;
         }
-        List<Integer> list = new ArrayList<>();
-        while (x > 0) {
-            list.add(x % 10);
-            x = x / 10;
-        }
-        if (list.size() <= 1) {
+        if (x < 10) {
             return true;
         }
-        int left = list.size()/2 - 1;
-        int right = list.size() % 2 ==0 ? left + 1 : left + 2;
-        while (left >= 0 && right < list.size()) {
-            if (!list.get(left).equals(list.get(right))) {
-                return false;
-            }
-            left --;
-            right ++;
+        if (x % 10 == 0){
+            return false;
         }
-        return true;
+        int r = 0;
+        while (x > 0) {
+            int temp = x % 10;
+            x = x / 10;
+            if (x > 0 && r == x) {
+                return true;
+            }
+            r = r*10 + temp;
+            if (r == x) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Problems9PalindromeNumber().isPalindrome(1110));
     }
 }
