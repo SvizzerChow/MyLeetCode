@@ -2,7 +2,7 @@ package ink.chow.leetcode.algorithm;
 
 import java.util.*;
 
-public class Problens15Sum3 {
+public class Problems15Sum3 {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         if (nums.length < 3) {
@@ -31,6 +31,6 @@ public class Problens15Sum3 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Problens15Sum3().threeSum(new int[ ]{-1,0,1,2,-1,-4}));
+        System.out.println(new Problems15Sum3().threeSum(new int[ ]{-1,0,1,2,-1,-4}));
     }
 }
