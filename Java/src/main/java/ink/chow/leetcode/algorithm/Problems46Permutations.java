@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Problem46Permutations {
+public class Problems46Permutations {
 
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
@@ -31,6 +31,6 @@ public class Problem46Permutations {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Problem46Permutations().permute(new int[]{1, 2, 4, 5}));
+        System.out.println(new Problems46Permutations().permute(new int[]{1, 2, 4, 5}));
     }
 }
