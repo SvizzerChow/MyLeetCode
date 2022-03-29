@@ -30,5 +30,6 @@ public class Problems56MergeIntervals {
     public static void main(String[] args) {
         int[][] r = new Problems56MergeIntervals().merge(new int[][]{{1, 3}, {5, 8}, {2, 6}, {11, 15}, {22, 28}});
         Arrays.stream(r).forEach(s-> System.out.println(Arrays.toString(s)));
+
     }
 }
